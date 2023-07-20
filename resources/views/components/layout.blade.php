@@ -9,6 +9,6 @@
     
     </head>
     <body>
-        <div class="text-2xl bg-blue-100">hi</div>
+       {{ $slot }}
     </body>
 </html>
