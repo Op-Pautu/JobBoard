@@ -37,13 +37,22 @@
             </ul>
         </nav>
         
-        @if (session('success'))
-            <div role="alert" 
+        @if (session()->has('success'))
+            <div role="alert" x-data="{ show: true}" 
+                x-init="setTimeout(()=> show = false, 3000 )"
+                x-show="show" 
                 class="my-8 rounded md border-l-4 border-green-300 bg-green 100 p-4 text-green-700 opacity-75">
-                <p class="font-bold">Success!</p>
+               
                 <p>{{ session('success') }}</p>
             </div>
             
+        @endif
+        @if(session()->has('error'))
+            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" 
+                x-show="show"
+                class="my-8 rounded-md border-l-4 border-red-300 bg-red-100 p-4 text-red-700 opacity-75">
+            {{ session('error') }}
+            </div>
         @endif
         {{ $slot }}
     </body>
