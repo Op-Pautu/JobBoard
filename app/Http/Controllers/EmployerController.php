@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class EmployerController extends Controller
 {
     public function __construct() {
-        $this->authorizeResource(Employee::class);
+        $this->authorizeResource(Employer::class);
     }
     /**
      * Show the form for creating a new resource.

@@ -10,4 +10,4 @@
         <x-button class="w-full">Create</x-button>
       </form>
     </x-card>
-  </x-layout>
+</x-layout>
