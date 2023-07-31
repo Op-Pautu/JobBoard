@@ -12,7 +12,15 @@ class MyJobController extends Controller
      */
     public function index()
     {
-        return view('my_job.index');
+        return view(
+            'my_job.index',
+            [
+                'jobs' => auth()->user()->employer
+                    ->jobs()
+                    ->with(['employer', 'jobApplications', 'jobApplications.user'])
+                    ->get()
+            ]
+        );
     }
 
     /**
@@ -22,6 +30,7 @@ class MyJobController extends Controller
     {
         return view('my_job.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
